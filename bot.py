@@ -1,4 +1,3 @@
-
 from pyrogram import Client, __version__
 from info import API_ID, API_HASH, BOT_TOKEN, PORT
 from utils import temp
@@ -14,7 +13,7 @@ class Bot(Client):
             api_id=API_ID,
             api_hash=API_HASH,
             bot_token=BOT_TOKEN,
-            workers=10,
+            workers=30,
             plugins={"root": "plugins"},
             sleep_threshold=5,
         )

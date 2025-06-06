@@ -1,4 +1,4 @@
-from info import BIN_CHANNEL, URL
+from info import BIN_CHANNEL, STREAM_URL
 from utils import temp
 from web.utils.custom_dl import TGCustomYield
 from utils import get_size
@@ -20,7 +20,7 @@ async def fetch_properties(message_id):
 
 async def render_page(message_id):
     file_name, mime_type = await fetch_properties(message_id)
-    src = urllib.parse.urljoin(URL, str(message_id))
+    src = urllib.parse.urljoin(STREAM_URL, str(message_id))
     audio_formats = ['audio/mpeg', 'audio/mp4', 'audio/x-mpegurl', 'audio/vnd.wav']
     video_formats = ['video/mp4', 'video/avi', 'video/ogg', 'video/h264', 'video/h265', 'video/x-matroska']
     if mime_type.lower() in video_formats:

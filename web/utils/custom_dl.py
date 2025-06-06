@@ -19,12 +19,6 @@ async def offset_fix(offset, chunksize):
 
 class TGCustomYield:
     def __init__(self):
-        """ A custom method to stream files from telegram.
-        functions:
-            generate_file_properties: returns the properties for a media on a specific message contained in FileId class.
-            generate_media_session: returns the media session for the DC that contains the media file on the message.
-            yield_file: yield a file from telegram servers for streaming.
-        """
         self.main_bot = temp.BOT
 
     @staticmethod

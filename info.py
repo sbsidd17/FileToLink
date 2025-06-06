@@ -1,10 +1,12 @@
 import os
-# Bot information
-API_ID = os.getenv('API_ID', "")
-API_HASH = os.getenv('API_HASH', "")
-BOT_TOKEN = os.getenv('BOT_TOKEN', "")
+from dotenv import load_dotenv
 
-# stream vars
-PORT = int(os.getenv('PORT', '5050'))
-BIN_CHANNEL = os.getenv("BIN_CHANNEL", "") #Log Channel
-URL = os.getenv("URL", "") #App URL not MongoDB URL
+load_dotenv()
+
+API_ID = int(os.getenv('API_ID'))
+API_HASH = os.getenv('API_HASH')
+BOT_TOKEN = os.getenv('BOT_TOKEN')
+
+PORT = int(os.getenv('PORT', '8080'))
+BIN_CHANNEL = int(os.getenv("BIN_CHANNEL"))
+STREAM_URL = os.getenv("URL")
