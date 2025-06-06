@@ -1,12 +1,20 @@
-from info import BIN_CHANNEL, STREAM_URL
-from utils import temp
+from info import BIN_CHANNEL, STREAM_URL, temp
 from web.utils.custom_dl import TGCustomYield
-from utils import get_size
 import urllib.parse
 import secrets
 import mimetypes
 import aiofiles
 import aiohttp
+
+
+def get_size(size):
+    units = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB"]
+    size = float(size)
+    i = 0
+    while size >= 1024.0 and i < len(units):
+        i += 1
+        size /= 1024.0
+    return "%.2f %s" % (size, units[i])
 
 async def fetch_properties(message_id):
     media_msg = await temp.BOT.get_messages(BIN_CHANNEL, message_id)
