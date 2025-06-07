@@ -29,22 +29,27 @@ async def fetch_properties(message_id):
 async def render_page(message_id):
     file_name, mime_type = await fetch_properties(message_id)
     src = urllib.parse.urljoin(STREAM_URL, str(message_id))
-    audio_formats = ['audio/mpeg', 'audio/mp4', 'audio/x-mpegurl', 'audio/vnd.wav']
-    video_formats = ['video/mp4', 'video/avi', 'video/ogg', 'video/h264', 'video/h265', 'video/x-matroska']
+
+    audio_formats = ['audio/mpeg', 'audio/mp4', 'audio/x-mpegurl', 'audio/vnd.wav', 'audio/ogg', 'audio/aac'] # Added common audio types
+    video_formats = ['video/mp4', 'video/avi', 'video/ogg', 'video/h264', 'video/h265', 'video/x-matroska', 'video/webm'] # Added webm
+
     if mime_type.lower() in video_formats:
         async with aiofiles.open('web/template/req.html') as r:
             heading = 'Watch {}'.format(file_name)
-            tag = mime_type.split('/')[0].strip()
-            html = (await r.read()).replace('tag', tag) % (heading, file_name, src)
+            # req.html has 6 placeholders: page title, h1 title, video src, mx player src, mx player title, vlc src
+            html = (await r.read()) % (heading, file_name, src, src, file_name, src)
     elif mime_type.lower() in audio_formats:
         async with aiofiles.open('web/template/req.html') as r:
             heading = 'Listen {}'.format(file_name)
-            tag = mime_type.split('/')[0].strip()
-            html = (await r.read()).replace('tag', tag) % (heading, file_name, src)
+            # req.html has 6 placeholders: page title, h1 title, video src, mx player src, mx player title, vlc src
+            # Using <video> tag for audio as well, Plyr handles it.
+            html = (await r.read()) % (heading, file_name, src, src, file_name, src)
     else:
         async with aiofiles.open('web/template/dl.html') as r:
+            heading = 'Download {}'.format(file_name) # Define heading for dl.html
             async with aiohttp.ClientSession() as s:
-                async with s.get(src) as u:
+                async with s.get(src) as u: # src here is the download link
                     file_size = get_size(u.headers.get('Content-Length'))
+                    # dl.html has 4 placeholders: page title, h1 title, download link, file size
                     html = (await r.read()) % (heading, file_name, src, file_size)
     return html
