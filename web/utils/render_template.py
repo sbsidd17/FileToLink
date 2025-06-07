@@ -42,32 +42,49 @@ async def render_page(message_id):
     if mime_type.lower() in video_formats:
         async with aiofiles.open('web/template/req.html', mode='r') as r:
             heading = 'Watch {}'.format(file_name)
-            # req.html has 6 placeholders: page title, h1 title, video src, mx player src, mx player title, vlc src
             html_template = await r.read()
-            html = html_template % (heading, file_name, media_content_src, media_content_src, file_name, media_content_src)
+            context = {
+                "page_title": heading,
+                "h1_title": file_name,
+                "video_src": media_content_src,
+                "mx_player_intent_url_part": media_content_src,
+                "mx_player_title": file_name,
+                "vlc_player_url": media_content_src
+            }
+            html = html_template.format(**context)
     elif mime_type.lower() in audio_formats:
         async with aiofiles.open('web/template/req.html', mode='r') as r:
             heading = 'Listen {}'.format(file_name)
-            # Using <video> tag for audio as well, Plyr handles it.
             html_template = await r.read()
-            html = html_template % (heading, file_name, media_content_src, media_content_src, file_name, media_content_src)
+            context = {
+                "page_title": heading,
+                "h1_title": file_name,
+                "video_src": media_content_src, # Plyr uses <video> for audio too
+                "mx_player_intent_url_part": media_content_src,
+                "mx_player_title": file_name,
+                "vlc_player_url": media_content_src
+            }
+            html = html_template.format(**context)
     else:
         async with aiofiles.open('web/template/dl.html', mode='r') as r:
             heading = 'Download {}'.format(file_name)
             file_size_str = "N/A" # Default file size
             try:
                 async with aiohttp.ClientSession() as s:
-                    # Use HEAD request for efficiency if only headers are needed, but GET is fine.
                     async with s.get(media_content_src) as u:
-                        # Ensure the request was successful before getting headers
                         if u.status == 200 or u.status == 206:
                              content_length = u.headers.get('Content-Length')
                              if content_length:
                                  file_size_str = get_size(content_length)
-                        # else: log error or keep "N/A"
             except Exception as e:
-                print(f"Error fetching file size for {media_content_src}: {e}") # Basic logging
+                print(f"Error fetching file size for {media_content_src}: {e}")
 
             html_template = await r.read()
-            html = html_template % (heading, file_name, media_content_src, file_size_str)
+            context = {
+                "page_title": heading,
+                "file_name_display": file_name,
+                "download_url": media_content_src,
+                "file_size": file_size_str
+            }
+            html = html_template.format(**context)
     return html

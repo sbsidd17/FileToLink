@@ -5,7 +5,7 @@
     <meta property="og:image" content="https://i.ibb.co/M8S0Zzj/live-streaming.png" itemprop="thumbnailUrl">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>%s</title>
+    <title>{page_title}</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -136,7 +136,7 @@
                 <!-- File Information -->
                 <div class="mb-6 sm:mb-8">
                     <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 netflix-text-shadow break-words px-2">
-                        %s
+                        {file_name_display}
                     </h1>
                     <p class="text-gray-300 text-base sm:text-lg px-2">
                         Your file is ready for download
@@ -145,12 +145,12 @@
                 
                 <!-- Download Button -->
                 <div class="mb-6 sm:mb-8">
-                    <a href="%s" class="inline-block w-full sm:w-auto">
+                    <a href="{download_url}" class="inline-block w-full sm:w-auto">
                         <button class="netflix-button primary flex items-center gap-3 sm:gap-4 px-8 sm:px-10 lg:px-12 py-3 sm:py-4 rounded-lg font-semibold text-lg sm:text-xl transition-all duration-200 mx-auto w-full sm:w-auto justify-center">
                             <i class="fas fa-download text-xl sm:text-2xl"></i>
                             <div class="text-center sm:text-left">
                                 <div>Download File</div>
-                                <div class="text-sm opacity-80 break-words">%s</div>
+                                <div class="text-sm opacity-80 break-words">{file_size}</div>
                             </div>
                         </button>
                     </a>

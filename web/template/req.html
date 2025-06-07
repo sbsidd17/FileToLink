@@ -5,7 +5,7 @@
     <meta property="og:image" content="https://i.ibb.co/M8S0Zzj/live-streaming.png" itemprop="thumbnailUrl">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>%s</title>
+    <title>{page_title}</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.plyr.io/3.6.9/plyr.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -64,7 +64,7 @@
         <!-- Title Section -->
         <div class="text-center mb-8">
             <h1 class="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-                %s
+                {h1_title}
             </h1>
             <div class="w-24 h-1 bg-netflix mx-auto rounded-full"></div>
         </div>
@@ -73,7 +73,7 @@
         <div class="max-w-6xl mx-auto mb-8">
             <div class="bg-netflixGray rounded-xl p-6 shadow-2xl">
                 <div class="aspect-video bg-black rounded-lg overflow-hidden mb-6">
-                    <video src="%s" class="player w-full h-full"></video>
+                    <video src="{video_src}" class="player w-full h-full"></video>
                 </div>
                 
                 <!-- Streaming Apps Section -->
@@ -84,7 +84,7 @@
                     </h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <!-- MX Player Button -->
-                        <a href="intent:%s#Intent;package=com.mxtech.videoplayer.ad;S.title=%s;end" 
+                        <a href="intent:{mx_player_intent_url_part}#Intent;package=com.mxtech.videoplayer.ad;S.title={mx_player_title};end" 
                            class="streaming-btn bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white py-4 px-6 rounded-lg flex items-center justify-center space-x-3 shadow-lg">
                             <i class="fas fa-play-circle text-2xl"></i>
                             <div>
@@ -94,7 +94,7 @@
                         </a>
                         
                         <!-- VLC Player Button -->
-                        <a href="vlc://%s" 
+                        <a href="vlc://{vlc_player_url}" 
                            class="streaming-btn bg-gradient-to-r from-orange-500 to-orange-700 hover:from-orange-600 hover:to-orange-800 text-white py-4 px-6 rounded-lg flex items-center justify-center space-x-3 shadow-lg">
                             <i class="fas fa-video text-2xl"></i>
                             <div>
