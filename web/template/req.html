@@ -6,371 +6,73 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>%s</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://vjs.zencdn.net/8.6.1/video-js.css" rel="stylesheet">
-    <script src="https://vjs.zencdn.net/8.6.1/video.min.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@300;400;500;600;700&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" type='text/css' href="https://drive----google.com/uc?export=view&id=1pVLG4gZy7jdow3sO-wFS06aP_A9QX0O6">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Delius">
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.9/plyr.css" />
     
-    <style>
-        body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            background: #141414;
+        									 
+<style>
+      body{
+        font-family: sans-serif;
+        background-color: #396691;
         }
         
-        .netflix-bg {
-            background: linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.7) 100%),
-                        linear-gradient(0deg, #141414 0%, #1a1a1a 100%);
-        }
-        
-        .video-js {
-            width: 100% !important;
-            height: auto !important;
-            border-radius: 8px;
-            background: #000;
-        }
-        
-        .video-js .vjs-big-play-button {
-            border-radius: 50%;
-            background: rgba(229, 9, 20, 0.9);
-            border: 3px solid rgba(255, 255, 255, 0.8);
-            width: clamp(70px, 10vw, 90px);
-            height: clamp(70px, 10vw, 90px);
-            line-height: clamp(64px, 9vw, 84px);
-            margin-left: calc(clamp(70px, 10vw, 90px) / -2);
-            margin-top: calc(clamp(70px, 10vw, 90px) / -2);
-            transition: all 0.2s ease;
-        }
-        
-        .video-js .vjs-big-play-button:hover {
-            background: rgba(229, 9, 20, 1);
-            transform: scale(1.05);
-            border-color: white;
-        }
-        
-        .video-js .vjs-control-bar {
-            background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.8) 100%);
-            border-radius: 0 0 8px 8px;
-            height: 50px;
-        }
-        
-        .netflix-red {
-            background: #e50914;
-        }
-        
-        .netflix-red:hover {
-            background: #f40612;
-        }
-        
-        .netflix-card {
-            background: rgba(20, 20, 20, 0.9);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .netflix-button {
-            background: #333333;
-            transition: all 0.2s ease;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .netflix-button:hover {
-            background: #4a4a4a;
-            border-color: rgba(255, 255, 255, 0.4);
-            transform: translateY(-1px);
-        }
-        
-        .netflix-button.primary {
-            background: linear-gradient(90deg, #e50914 0%, #b20610 100%);
-            border: 1px solid #e50914;
-        }
-        
-        .netflix-button.primary:hover {
-            background: linear-gradient(90deg, #f40612 0%, #d6070f 100%);
-            box-shadow: 0 4px 20px rgba(229, 9, 20, 0.4);
-        }
-        
-        .netflix-text-shadow {
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-        }
-        
-        .netflix-logo {
-            font-weight: 900;
-            font-size: 2rem;
-            color: #e50914;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-            letter-spacing: -0.05em;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-        
-        .netflix-logo:hover {
-            color: #f40612;
-            transform: scale(1.02);
-        }
-        
-        .fa-icon {
-            font-size: 1.1em;
-            margin-right: 0.5rem;
-        }
-        
-        @media (max-width: 640px) {
-            .video-js .vjs-control-bar {
-                height: 45px;
-            }
-            
-            .fa-icon {
-                font-size: 1em;
-            }
-        }
-        
-        /* Netflix-style scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: #141414;
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: #e50914;
-            border-radius: 4px;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-            background: #f40612;
-        }
+      marquee{
+      font-size: 20px;
+      font-weight: 700;
+      color: black;
+      font-family: sans-serif;
+      }
     </style>
 </head>
 
-<body class="netflix-bg min-h-screen text-white">
-    
-    <!-- Netflix-style Header -->
-    <header class="bg-black bg-opacity-90 backdrop-blur-md sticky top-0 z-50 border-b border-gray-800">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <div class="flex items-center">
-                <div class="flex items-center">
-                    <span class="netflix-logo" onclick="window.open('https://t.me/botsync', '_blank')">
-                        BOTSYNC
-                    </span>
-                </div>
-            </div>
+<body>
+	
+    <header>
+        <marquee bgcolor="#396691"
+        <div class="toogle"></div>
+        <div id="file-name">
+            %s
         </div>
+
+    </marquee>
     </header>
 
-    <!-- Main Content -->
-    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div class="max-w-6xl mx-auto">
-            
-            <!-- Video Player Section -->
-            <div class="netflix-card rounded-lg p-6 sm:p-8 shadow-2xl mb-8">
-                <div class="relative">
-                    <div class="aspect-video rounded-lg overflow-hidden shadow-2xl bg-black">
-                        <video 
-                            id="video-player"
-                            class="video-js vjs-default-skin w-full h-full"
-                            controls
-                            preload="auto"
-                            data-setup='{}'>
-                            <source src="%s" type="video/mp4">
-                            <p class="vjs-no-js text-white text-center p-8">
-                                To view this video please enable JavaScript, and consider upgrading to a web browser that
-                                <a href="https://videojs.com/html5-video-support/" target="_blank" class="text-red-500 underline hover:text-red-400">supports HTML5 video</a>.
-                            </p>
-                        </video>
-                    </div>
-                </div>
-            </div>
+    <div class="container">
+        <tag src="%s" class="player"></tag>     
+    </div>
 
-            <!-- Video Information -->
-            <div class="netflix-card rounded-lg p-6 sm:p-8 mb-8">
-                <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
-                    <!-- File Info -->
-                    <div class="flex-1">
-                        <h1 class="text-2xl sm:text-3xl font-bold mb-3 netflix-text-shadow break-words">
-                            %s
-                        </h1>
-                    </div>
-                    
-                    <!-- Primary Action -->
-                    <div class="flex items-center gap-4">
-                        <button 
-                            onclick="downloadVideo()"
-                            class="netflix-button primary flex items-center gap-3 px-8 py-3 rounded-lg font-semibold text-lg transition-all duration-200">
-                            <i class="fas fa-download"></i>
-                            Download
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- External Players -->
-            <div class="netflix-card rounded-lg p-6 sm:p-8">
-                <h2 class="text-xl font-semibold mb-6 netflix-text-shadow">
-                    <i class="fas fa-play-circle text-red-500 mr-3"></i>
-                    Watch with External Players
-                </h2>
-                
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <button 
-                        onclick="openInMXPlayer()"
-                        class="netflix-button flex items-center gap-4 p-4 rounded-lg font-medium transition-all duration-200">
-                        <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-play text-white text-lg"></i>
-                        </div>
-                        <div class="text-left">
-                            <div class="font-semibold">MX Player</div>
-                            <div class="text-sm text-gray-400">Android Media Player</div>
-                        </div>
-                    </button>
-                    
-                    <button 
-                        onclick="openInVLC()"
-                        class="netflix-button flex items-center gap-4 p-4 rounded-lg font-medium transition-all duration-200">
-                        <div class="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-video text-white text-lg"></i>
-                        </div>
-                        <div class="text-left">
-                            <div class="font-semibold">VLC Player</div>
-                            <div class="text-sm text-gray-400">Universal Media Player</div>
-                        </div>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="mt-16 pb-8">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="netflix-card rounded-lg p-6 text-center border-amber-600 border-opacity-30">
-                <div class="flex items-center justify-center mb-3">
-                    <i class="fas fa-info-circle text-amber-500 text-xl mr-3"></i>
-                    <h3 class="text-amber-400 font-semibold">Need Help?</h3>
-                </div>
-                <p class="text-gray-300 text-sm leading-relaxed max-w-2xl mx-auto">
-                    If the video doesn't play in your browser, try downloading it or opening with an external player. 
-                    For the best experience, we recommend using VLC or MX Player.
-                </p>
-            </div>
-        </div>
+    <footer>
+	    <center><h4>Video not playing? Your browser may not support the codec. Please download and watch instead.</h4></center>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize Video.js player with Netflix-style options
-            const player = videojs('video-player', {
-                fluid: true,
-                responsive: true,
-                playbackRates: [0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2],
-                controls: true,
-                preload: 'metadata',
-                techOrder: ['html5'],
-                html5: {
-                    vhs: {
-                        overrideNative: true
-                    }
-                },
-                breakpoints: {
-                    tiny: 300,
-                    xsmall: 400,
-                    small: 500,
-                    medium: 600,
-                    large: 700,
-                    xlarge: 800,
-                    huge: 900
-                }
-            });
-
-            player.ready(function() {
-                console.log('Netflix-style player ready');
-                
-                // Add Netflix-style class
-                player.addClass('netflix-player');
-                
-                // Responsive controls
-                const adjustControls = () => {
-                    if (window.innerWidth < 640) {
-                        player.addClass('vjs-mobile-ui');
-                    } else {
-                        player.removeClass('vjs-mobile-ui');
-                    }
-                };
-                
-                adjustControls();
-                window.addEventListener('resize', adjustControls);
-                
-                player.on('play', function() {
-                    console.log('Playing Netflix-style');
-                });
-            });
-
-            player.on('error', function() {
-                const error = player.error();
-                console.error('Video.js error:', error);
-            });
+    <script src="https://cdn.plyr.io/3.6.9/plyr.js"></script>
+	<script>
+        const controls = [
+              'play-large',
+              'rewind',
+              'play', 
+              'fast-forward', 
+              'progress', 
+              'current-time',
+              'duration',
+              'mute',
+              'volume',
+              'captions',
+              'settings',
+              'pip',
+              'airplay',
+              'download',
+              'fullscreen'
+            ];
+        document.addEventListener('DOMContentLoaded', () => {
+            const player = Plyr.setup('.player', { controls });
         });
 
-        // External player functions
-        function openInMXPlayer() {
-            const videoUrl = '%s';
-            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-            
-            if (isMobile) {
-                const mxPlayerUrl = `intent:${videoUrl}#Intent;package=com.mxtech.videoplayer.ad;end`;
-                window.location.href = mxPlayerUrl;
-                
-                setTimeout(() => {
-                    if (confirm('MX Player not found. Download from Play Store?')) {
-                        window.open('https://play.google.com/store/apps/details?id=com.mxtech.videoplayer.ad', '_blank');
-                    }
-                }, 1500);
-            } else {
-                if (confirm('MX Player is a mobile app. View on Play Store?')) {
-                    window.open('https://play.google.com/store/apps/details?id=com.mxtech.videoplayer.ad', '_blank');
-                }
-            }
-        }
-
-        function openInVLC() {
-            const videoUrl = '%s';
-            const vlcUrl = `vlc://${videoUrl}`;
-            
-            window.location.href = vlcUrl;
-            
-            setTimeout(() => {
-                if (confirm('VLC Player not found. Download VLC?')) {
-                    window.open('https://www.videolan.org/vlc/', '_blank');
-                }
-            }, 1500);
-        }
-
-        function downloadVideo() {
-            const videoUrl = '%s';
-            const fileName = '%s';
-            
-            const link = document.createElement('a');
-            link.href = videoUrl;
-            link.download = fileName;
-            link.style.display = 'none';
-            
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            
-            // Netflix-style feedback
-            const button = event.target.closest('button');
-            const originalText = button.innerHTML;
-            button.innerHTML = `
-                <i class="fas fa-spinner fa-spin mr-3"></i>
-                Downloading...
-            `;
-            
-            setTimeout(() => {
-                button.innerHTML = originalText;
-            }, 2000);
-        }
+        const body = document.querySelector('body');
+        const footer = document.querySelector('footer');
+        const toogle = document.querySelector('.toogle');      
     </script>
 </body>
 </html>
