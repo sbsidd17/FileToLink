@@ -1,6 +1,5 @@
 from info import BIN_CHANNEL, STREAM_URL, temp
 from web.utils.custom_dl import TGCustomYield
-from utils import get_size
 import urllib.parse
 import secrets
 import mimetypes
