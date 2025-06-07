@@ -5,165 +5,74 @@
     <meta property="og:image" content="https://i.ibb.co/M8S0Zzj/live-streaming.png" itemprop="thumbnailUrl">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{page_title}</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>%s</title>
+    <link rel="stylesheet" type='text/css' href="https://drive----google.com/uc?export=view&id=1pVLG4gZy7jdow3sO-wFS06aP_A9QX0O6">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Delius">
     <link rel="stylesheet" href="https://cdn.plyr.io/3.6.9/plyr.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    <script>
-        tailwind.config = {{
-            theme: {{
-                extend: {{
-                    colors: {{
-                        netflix: '#E50914',
-                        netflixDark: '#141414',
-                        netflixGray: '#2F2F2F'
-                    }}
-                }}
-            }}
-        }}
-    </script>
-    
-    <style>
-        .gradient-bg {{
-            background: linear-gradient(135deg, #141414 0%, #2F2F2F 100%);
-        }}
-        .plyr {{
-            border-radius: 12px;
-            overflow: hidden;
-        }}
-        .streaming-btn {{
-            transition: all 0.3s ease;
-        }}
-        .streaming-btn:hover {{
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-        }}
+        									 
+<style>
+      body{
+        font-family: sans-serif;
+        background-color: #396691;
+        }
+        
+      marquee{
+      font-size: 20px;
+      font-weight: 700;
+      color: black;
+      font-family: sans-serif;
+      }
     </style>
 </head>
 
-<body class="bg-netflixDark text-white min-h-screen">
-    <!-- Header -->
-    <header class="gradient-bg border-b border-gray-800">
-        <div class="container mx-auto px-4 py-4">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-4">
-                    <div class="text-2xl font-bold text-netflix">
-                        <i class="fas fa-sync-alt mr-2"></i>BOTSYNC
-                    </div>
-                </div>
-                <div class="hidden md:flex items-center space-x-6">
-                    <span class="text-gray-300 text-sm">Premium Streaming</span>
-                </div>
-            </div>
+<body>
+	
+    <header>
+        <marquee bgcolor="#396691"
+        <div class="toogle"></div>
+        <div id="file-name">
+            %s
         </div>
+
+    </marquee>
     </header>
 
-    <!-- Main Content -->
-    <div class="container mx-auto px-4 py-8">
-        <!-- Title Section -->
-        <div class="text-center mb-8">
-            <h1 class="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-                {h1_title}
-            </h1>
-            <div class="w-24 h-1 bg-netflix mx-auto rounded-full"></div>
-        </div>
-
-        <!-- Video Player Section -->
-        <div class="max-w-6xl mx-auto mb-8">
-            <div class="bg-netflixGray rounded-xl p-6 shadow-2xl">
-                <div class="aspect-video bg-black rounded-lg overflow-hidden mb-6">
-                    <video src="{video_src}" class="player w-full h-full"></video>
-                </div>
-                
-                <!-- Streaming Apps Section -->
-                <div class="bg-gray-900 rounded-lg p-6">
-                    <h3 class="text-xl font-semibold mb-4 text-center">
-                        <i class="fas fa-mobile-alt mr-2 text-netflix"></i>
-                        Stream on Your Device
-                    </h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <!-- MX Player Button -->
-                        <a href="intent:{mx_player_intent_url_part}#Intent;package=com.mxtech.videoplayer.ad;S.title={mx_player_title};end" 
-                           class="streaming-btn bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white py-4 px-6 rounded-lg flex items-center justify-center space-x-3 shadow-lg">
-                            <i class="fas fa-play-circle text-2xl"></i>
-                            <div>
-                                <div class="font-semibold">MX Player</div>
-                                <div class="text-sm opacity-90">Android App</div>
-                            </div>
-                        </a>
-                        
-                        <!-- VLC Player Button -->
-                        <a href="vlc://{vlc_player_url}" 
-                           class="streaming-btn bg-gradient-to-r from-orange-500 to-orange-700 hover:from-orange-600 hover:to-orange-800 text-white py-4 px-6 rounded-lg flex items-center justify-center space-x-3 shadow-lg">
-                            <i class="fas fa-video text-2xl"></i>
-                            <div>
-                                <div class="font-semibold">VLC Player</div>
-                                <div class="text-sm opacity-90">Cross Platform</div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Info Section -->
-        <div class="max-w-4xl mx-auto text-center">
-            <div class="bg-netflixGray rounded-lg p-6 shadow-lg">
-                <div class="flex items-center justify-center mb-4">
-                    <i class="fas fa-info-circle text-netflix text-xl mr-2"></i>
-                    <h4 class="text-lg font-medium">Playback Information</h4>
-                </div>
-                <p class="text-gray-300 leading-relaxed">
-                    Video not playing in your browser? Your browser may not support this codec. 
-                    Use the streaming buttons above to open in your preferred media player app, 
-                    or download the file for offline viewing.
-                </p>
-            </div>
-        </div>
+    <div class="container">
+        <tag src="%s" class="player"></tag>     
     </div>
 
-    <!-- Footer -->
-    <footer class="bg-black border-t border-gray-800 mt-12">
-        <div class="container mx-auto px-4 py-8">
-            <div class="text-center">
-                <div class="text-netflix font-bold text-xl mb-2">
-                    <i class="fas fa-sync-alt mr-2"></i>BOTSYNC
-                </div>
-                <p class="text-gray-500 text-xs mt-4">
-                    &copy; Botsync all rights reserved 2025
-                </p>
-            </div>
-        </div>
+    <footer>
+	    <center><h4>Video not playing? Your browser may not support the codec. Please download and watch instead.</h4></center>
     </footer>
 
     <script src="https://cdn.plyr.io/3.6.9/plyr.js"></script>
-    <script>
+	<script>
         const controls = [
-            'play-large',
-            'rewind',
-            'play', 
-            'fast-forward', 
-            'progress', 
-            'current-time',
-            'duration',
-            'mute',
-            'volume',
-            'captions',
-            'settings',
-            'pip',
-            'airplay',
-            'download',
-            'fullscreen'
-        ];
-        
-        document.addEventListener('DOMContentLoaded', () => {{
-            const player = Plyr.setup('.player', {{
-                controls,
-                settings: ['captions', 'quality', 'speed'],
-                quality: {{ default: 720, options: [4320, 2880, 2160, 1440, 1080, 720, 576, 480, 360, 240] }}
-            }});
-        }});
+              'play-large',
+              'rewind',
+              'play', 
+              'fast-forward', 
+              'progress', 
+              'current-time',
+              'duration',
+              'mute',
+              'volume',
+              'captions',
+              'settings',
+              'pip',
+              'airplay',
+              'download',
+              'fullscreen'
+            ];
+        document.addEventListener('DOMContentLoaded', () => {
+            const player = Plyr.setup('.player', { controls });
+        });
+
+        const body = document.querySelector('body');
+        const footer = document.querySelector('footer');
+        const toogle = document.querySelector('.toogle');      
     </script>
 </body>
 </html>

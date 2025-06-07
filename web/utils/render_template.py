@@ -1,5 +1,6 @@
 from info import BIN_CHANNEL, STREAM_URL, temp
 from web.utils.custom_dl import TGCustomYield
+from utils import get_size
 import urllib.parse
 import secrets
 import mimetypes
@@ -8,6 +9,8 @@ import aiohttp
 
 
 def get_size(size):
+    """Get size in readable format"""
+
     units = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB"]
     size = float(size)
     i = 0
@@ -28,63 +31,23 @@ async def fetch_properties(message_id):
 
 async def render_page(message_id):
     file_name, mime_type = await fetch_properties(message_id)
-    base_for_join = STREAM_URL
-    if base_for_join and not base_for_join.endswith('/'):
-        base_for_join += '/'
-    elif not base_for_join:
-        if base_for_join == "":
-            base_for_join = "/"
-    media_content_src = urllib.parse.urljoin(base_for_join, str(message_id))
-
-    audio_formats = ['audio/mpeg', 'audio/mp4', 'audio/x-mpegurl', 'audio/vnd.wav', 'audio/ogg', 'audio/aac']
-    video_formats = ['video/mp4', 'video/avi', 'video/ogg', 'video/h264', 'video/h265', 'video/x-matroska', 'video/webm']
-
+    src = urllib.parse.urljoin(STREAM_URL, str(message_id))
+    audio_formats = ['audio/mpeg', 'audio/mp4', 'audio/x-mpegurl', 'audio/vnd.wav']
+    video_formats = ['video/mp4', 'video/avi', 'video/ogg', 'video/h264', 'video/h265', 'video/x-matroska']
     if mime_type.lower() in video_formats:
-        async with aiofiles.open('web/template/req.html', mode='r') as r:
+        async with aiofiles.open('web/template/req.html') as r:
             heading = 'Watch {}'.format(file_name)
-            html_template = await r.read()
-            context = {
-                "page_title": heading,
-                "h1_title": file_name,
-                "video_src": media_content_src,
-                "mx_player_intent_url_part": media_content_src,
-                "mx_player_title": file_name,
-                "vlc_player_url": media_content_src
-            }
-            html = html_template.format(**context)
+            tag = mime_type.split('/')[0].strip()
+            html = (await r.read()).replace('tag', tag) % (heading, file_name, src)
     elif mime_type.lower() in audio_formats:
-        async with aiofiles.open('web/template/req.html', mode='r') as r:
+        async with aiofiles.open('web/template/req.html') as r:
             heading = 'Listen {}'.format(file_name)
-            html_template = await r.read()
-            context = {
-                "page_title": heading,
-                "h1_title": file_name,
-                "video_src": media_content_src, # Plyr uses <video> for audio too
-                "mx_player_intent_url_part": media_content_src,
-                "mx_player_title": file_name,
-                "vlc_player_url": media_content_src
-            }
-            html = html_template.format(**context)
+            tag = mime_type.split('/')[0].strip()
+            html = (await r.read()).replace('tag', tag) % (heading, file_name, src)
     else:
-        async with aiofiles.open('web/template/dl.html', mode='r') as r:
-            heading = 'Download {}'.format(file_name)
-            file_size_str = "N/A" # Default file size
-            try:
-                async with aiohttp.ClientSession() as s:
-                    async with s.get(media_content_src) as u:
-                        if u.status == 200 or u.status == 206:
-                             content_length = u.headers.get('Content-Length')
-                             if content_length:
-                                 file_size_str = get_size(content_length)
-            except Exception as e:
-                print(f"Error fetching file size for {media_content_src}: {e}")
-
-            html_template = await r.read()
-            context = {
-                "page_title": heading,
-                "file_name_display": file_name,
-                "download_url": media_content_src,
-                "file_size": file_size_str
-            }
-            html = html_template.format(**context)
+        async with aiofiles.open('web/template/dl.html') as r:
+            async with aiohttp.ClientSession() as s:
+                async with s.get(src) as u:
+                    file_size = get_size(u.headers.get('Content-Length'))
+                    html = (await r.read()) % (heading, file_name, src, file_size)
     return html
