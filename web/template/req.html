@@ -13,14 +13,14 @@
     <script>
         tailwind.config = {{
             theme: {{
-                extend: {{ 
+                extend: {{
                     colors: {{
                         netflix: '#E50914',
                         netflixDark: '#141414',
                         netflixGray: '#2F2F2F'
                     }}
                 }}
-            }} 
+            }}
         }}
     </script>
     
@@ -157,13 +157,13 @@
             'fullscreen'
         ];
         
-        document.addEventListener('DOMContentLoaded', () => {
-            const player = Plyr.setup('.player', {
+        document.addEventListener('DOMContentLoaded', () => {{
+            const player = Plyr.setup('.player', {{
                 controls,
                 settings: ['captions', 'quality', 'speed'],
-                quality: { default: 720, options: [4320, 2880, 2160, 1440, 1080, 720, 576, 480, 360, 240] }
-            });
-        });
+                quality: {{ default: 720, options: [4320, 2880, 2160, 1440, 1080, 720, 576, 480, 360, 240] }}
+            }});
+        }});
     </script>
 </body>
 </html>
