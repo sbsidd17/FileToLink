@@ -1,1 +1,1 @@
-from .web.routes import web_server
+from web import web_server
