@@ -11,34 +11,34 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
+        tailwind.config = {{ // Escaped
+            theme: {{ // Escaped
+                extend: {{ // Escaped
+                    colors: {{ // Escaped
                         netflix: '#E50914',
                         netflixDark: '#141414',
                         netflixGray: '#2F2F2F'
-                    }
-                }
-            }
-        }
+                    }} // Escaped
+                }} // Escaped
+            }} // Escaped
+        }} // Escaped
     </script>
     
     <style>
-        .gradient-bg {
+        .gradient-bg {{ // Escaped
             background: linear-gradient(135deg, #141414 0%, #2F2F2F 100%);
-        }
-        .plyr {
+        }} // Escaped
+        .plyr {{ // Escaped
             border-radius: 12px;
             overflow: hidden;
-        }
-        .streaming-btn {
+        }} // Escaped
+        .streaming-btn {{ // Escaped
             transition: all 0.3s ease;
-        }
-        .streaming-btn:hover {
+        }} // Escaped
+        .streaming-btn:hover {{ // Escaped
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-        }
+        }} // Escaped
     </style>
 </head>
 
@@ -164,13 +164,15 @@
             'fullscreen'
         ];
         
-        document.addEventListener('DOMContentLoaded', () => {
-            const player = Plyr.setup('.player', { 
-                controls,
+        document.addEventListener('DOMContentLoaded', () => {{ // Escape for arrow function body
+            const player = Plyr.setup('.player', {{ // Escape for options object literal
+                controls, // This assumes 'controls' is a JS variable in scope.
+                          // If it were a string key like 'controls': value, it would be fine.
+                          // As a shorthand property, it relies on the 'controls' variable.
                 settings: ['captions', 'quality', 'speed'],
-                quality: { default: 720, options: [4320, 2880, 2160, 1440, 1080, 720, 576, 480, 360, 240] }
-            });
-        });
+                quality: {{ default: 720, options: [4320, 2880, 2160, 1440, 1080, 720, 576, 480, 360, 240] }} // Escape for quality object literal
+            }});
+        }}); // Escape for arrow function body
     </script>
 </body>
 </html>
