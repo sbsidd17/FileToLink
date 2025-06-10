@@ -16,12 +16,12 @@ async def private_receive_handler(client, message):
         chat_id=BIN_CHANNEL,
         caption=f"**File Name:** {file_id.file_name}\n\n**Requested By:** {message.from_user.mention}")
 
-    file_name = file_id.file_name.replace("_", " ").replace(".mp4", "").replace(".mkv", "").replace(".", " ")
+    file_name = file_id.file_name.replace("_", " ").replace(".", " ")
     online = f"{STREAM_URL}/watch/{msg.id}"
     download = f"{STREAM_URL}/download/{msg.id}"
 
     await message.reply_text(
-        text=f"<b>Here Is Your Streamable Link\n\nFile Name</b>:\n<code>{file_name}</code>\n\n<b>Powered By - <a href=https://t.me/botsync>©BotSync™</a></b>",
+        text=f"<b>Here Is Your Streamable Link\n\nFile Name</b>:\n<code>{file_name}</code>\n\n<b>Powered By - <a href=https://t.me/sdbots1>©sdBots</a></b>",
         reply_markup=InlineKeyboardMarkup(
         [
             [
