@@ -18,7 +18,7 @@ async def root_route_handler(request):
     return web.Response(text="file2link Backend is working")
 
 
-@routes.get("/watch/{message_id}")
+@routes.get("/watch/{message_id}/{file_name}")
 async def stream_handler(request):
     try:
         message_id = int(request.match_info['message_id'])
@@ -27,8 +27,8 @@ async def stream_handler(request):
         logging.error(e)
         raise web.HTTPNotFound
         
-@routes.get("/download/{message_id}")
-@routes.get("/{message_id}")
+@routes.get("/download/{message_id}/{file_name}")
+@routes.get("/{message_id}/{file_name}")
 async def old_stream_handler(request):
     try:
         message_id = int(request.match_info['message_id'])
