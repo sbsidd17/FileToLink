@@ -15,7 +15,7 @@ async def web_server():
 
 @routes.get("/", allow_head=True)
 async def root_route_handler(request):
-    raise web.HTTPFound('https://telegram.me/botsync')
+    return web.Response(text="file2link Backend is working")
 
 
 @routes.get("/watch/{message_id}")
