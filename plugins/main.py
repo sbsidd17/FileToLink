@@ -16,7 +16,7 @@ async def private_receive_handler(client, message):
         chat_id=BIN_CHANNEL,
         caption=f"**File Name:** {file_id.file_name}\n\n**Requested By:** {message.from_user.mention}")
 
-    file_name = file_id.file_name.replace("_", " ").replace(".", " ")
+    file_name = file_id.file_name
     online = f"{STREAM_URL}/watch/{msg.id}/{file_name}"
     download = f"{STREAM_URL}/download/{msg.id}/{file_name}"
 
