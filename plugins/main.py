@@ -19,14 +19,14 @@ async def private_receive_handler(client, message):
     file_name = file_id.file_name.replace(" ", "_")
     online = f"{STREAM_URL}/watch/{msg.id}/{file_name}"
     download = f"{STREAM_URL}/download/{msg.id}/{file_name}"
-    p_play = f"playit://playerv2/video?url={online}"
+    d_play = f"https://sidplayer.vercel.app?direct_link={download}"
 
     await message.reply_text(
-        text=f"<b>Here Is Your Streamable Link\n\nFile Name</b>:\n<code>{file_name}</code>\n\n<b>Powered By - <a href=https://t.me/sdbots1>©sdBots</a></b>\n\n<b>Play Using - <a href={p_play}>PlayIt</a></b>",
+        text=f"<b>Here Is Your Streamable Link\n\nFile Name</b>:\n<code>{file_name}</code>\n\n<b>Powered By - <a href=https://t.me/sdbots1>©sdBots</a></b>",
         reply_markup=InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("Watch", url=online),
+                InlineKeyboardButton("Watch", url=d_play),
                 InlineKeyboardButton("Download", url=download)
             ]
         ]
